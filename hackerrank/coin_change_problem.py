@@ -1,4 +1,3 @@
-
 def get_ways(coins, summ):
     """
     Desc: finding number of ways of making change for a particular number of units (c)
@@ -8,19 +7,18 @@ def get_ways(coins, summ):
     :return - number of ways of getting summ
     """
     # to store possible sum of all values upto sum
-    count = [0] * (summ + 1)
-    # if there is no money, i.e. coins
-    count[0] = 1
+    count = [1] + [0] * (summ)
     # find sum considering each denomination of coin
-    for i in range(len(coins)):
+    for c in coins:
         # run inner loops for sum j which are bigger than current coin i
-        for j in range(coins[i], summ+1):
-            count[j] += count[j - coins[i]]
+        for i in range(summ + 1):
+            if i + c <= summ:
+                count[i + c] += count[i]
 
-    return count[summ]
+    return count[-1]
 
 
 if __name__ == "__main__":
     n = [2, 5, 3, 6]
     c = 10
-    print(get_ways(n,c))
+    print(get_ways(n, c))
