@@ -23,7 +23,9 @@ def sum_equals_k(a, k):
 
 if __name__ == '__main__':
     k = 12
-    # a = [7, 6, 12, 3, 9, 3, 5, 1]
-    # a = [1, 3, 46, 1, 3, 9]
+    a = [7, 6, 6, 3, 9, 3, 5, 1]
+    print(sum_equals_k(a, k))
+    a = [1, 3, 46, 1, 3, 9]
+    print(sum_equals_k(a, k))
     a = [6, 6, 6]
     print(sum_equals_k(a, k))
